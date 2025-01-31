@@ -155,13 +155,40 @@ input("Roll the dice for the monster's health points (Press enter)")
 m_health_points = random.choice(diceOptions)
 print("Player rolled " + str(m_health_points) + " health points for the monster")
 
-# lab 04 question 5
+# lab 04 question 5  item 1
 print("You find loot bag! look inside to find 2 teams!")
 input("Roll for the first item (Press Enter)")
 lootRoll = random.choice(range(1, len(loot_options)+ 1))
 loot = loot_options.pop(lootRoll -1)
 belt.append(loot)
 print("Your belt: ",belt)
+
+#lab 04 q6 item 2
+print("You find loot bag! look inside to find 2 teams!")
+input("Roll for the second Items(Press Enter)")
+lootRoll = random.choice(range(1, len(loot_options)+ 1))
+loot = loot_options.pop(lootRoll -1)
+belt.append(loot)
+print("Your belt: ",belt)
+
+#lab4 q7 sort the belt
+belt.sort()
+print("Your belt item sorted as follow",belt)
+
+
+#lab 04 Q8 use the belt
+
+print("You saw s Monster! Quickly use your first item")
+first_item = belt.pop(0)
+if first_item in good_loot_options:
+    health_points= min(6,(health_points+2))
+    print(f"You used the {first_item}, and your health changed to {health_points}")
+elif first_item in bad_loot_options:
+    health_points = max(0, (health_points - 2))
+    print(f"You used the {first_item}, and your health changed to {health_points}")
+else:
+    print(f"You used the {first_item}, but it was not helpful!")
+
 
 
 input("Analyze the roll (Press enter)")

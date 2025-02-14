@@ -5,28 +5,25 @@ import random
 # print("Inside function.py")
 
 
-# Lab 5: Question 4
-def use_loot():
+# Lab 4: Question 4
+def use_loot(belt, health_points):
     good_loot_options = ["Health Potion", "Leather Boots"]
     bad_loot_options = ["Poison Potion"]
 
     print("    |    !!You see a monster in the distance! So you quickly use your first item:")
     first_item = belt.pop(0)
-
     if first_item in good_loot_options:
-        health_points = min(20,(health_points +2))
-        print("    |    You used " +first_item  +" to up your health to "+ str(health_points) )
+        health_points = min(20, (health_points + 2))
+        print("    |    You used " + first_item + " to up your health to " + str(health_points))
     elif first_item in bad_loot_options:
-        health_points = max(20,(health_points - 2))
-
-        
-        print("    |    You used " + first_item + " to hurt your health to " +str(first_item) )
+        health_points = max(0, (health_points - 2))
+        print("    |    You used " + first_item + " to hurt your health to " + str(health_points))
     else:
-        print("    |    You used " +first_item  + " but it's not helpful")
+        print("    |    You used " + first_item + " but it's not helpful")
     return belt, health_points
 
 
-# Lab 5: Question 3 
+# Lab 4: Question 3 
 def collect_loot(loot_options, belt):
     ascii_image3 = """
                       @@@ @@                
@@ -44,10 +41,10 @@ def collect_loot(loot_options, belt):
               @@@@@@@@@@@@          
               """
     print(ascii_image3)
-    loot_roll = random.choice(random(1,len(loot_options)+1))
-    loot = loot_options.pop(loot_roll-1)
+    loot_roll = random.choice(range(1, len(loot_options) + 1))
+    loot = loot_options.pop(loot_roll - 1)
     belt.append(loot)
-    print("    |    Your belt: ",belt)
+    print("    |    Your belt: ", belt)
     return loot_options, belt
 
 
@@ -122,7 +119,6 @@ def monster_attacks(m_combat_strength, health_points):
 # You can choose to go crazy, but it will reduce your health points by 5
 def inception_dream(num_dream_lvls):
     num_dream_lvls = int(num_dream_lvls)
-
     # Base Case
     if num_dream_lvls == 1:
         print("    |    You are in the deepest dream level now")
@@ -140,3 +136,9 @@ def inception_dream(num_dream_lvls):
         # 1 + 1 + 1 + 1 + inception_dream(1)
         # 1 + 1 + 1 + 1 + 2
         return 1 + int(inception_dream(num_dream_lvls - 1))
+
+# Lab 06 - Question 3 and 4
+
+# Lab 06 - Question 5a
+
+# Lab 06 - Question 5b

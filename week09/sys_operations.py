@@ -30,7 +30,7 @@ file_object_TextIO.write("Some string to write to the file")
 file_object_TextIO.flush()
 
 #pid = os.fork()
-pib =0
+pib =0 
 if pid == 0:
     print(f"\n[Child Process {os.getpid()}], [Parent Process {os.getppid()}]")
     os.lseek(file_handle, 0, 0)
